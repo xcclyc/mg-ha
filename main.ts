@@ -1,3 +1,13 @@
+info.onScore(100, function () {
+    game.setGameOverEffect(true, effects.confetti)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+    game.splash("not bad!")
+    info.setScore(0)
+    for (let index = 0; index < 100; index++) {
+        info.changeScoreBy(1)
+    }
+})
 tiles.setCurrentTilemap(tilemap`级别2`)
 let mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
